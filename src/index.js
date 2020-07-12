@@ -8,25 +8,30 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 
-// import { default as data } from "./graphql/initial-data";
+import { default as data } from "./graphql/initial-data";
+import { typeDefs, resolvers } from "./graphql/resolvers";
 import "./index.css";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000/graphql",
+	uri: "http://localhost:5000/graphql",
 });
 
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-  link: httpLink,
-  cache,
+	link: httpLink,
+	cache,
+	typeDefs,
+	resolvers,
 });
 
+client.writeData({ data });
+
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Router>
-      <App />
-    </Router>
-  </ApolloProvider>,
-  document.getElementById("root")
+	<ApolloProvider client={client}>
+		<Router>
+			<App />
+		</Router>
+	</ApolloProvider>,
+	document.getElementById("root")
 );

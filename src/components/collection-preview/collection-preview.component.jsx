@@ -17,13 +17,8 @@ const CollectionPreview = ({ title, products }) => {
 			<Products>
 				{products
 					.filter((product, index) => index < 4)
-					.map(({ id, name, price, imageUrl }) => (
-						<CollectionItem
-							key={id}
-							name={name}
-							price={price}
-							imageUrl={imageUrl}
-						/>
+					.map((product) => (
+						<CollectionItem key={product.id} product={product} />
 					))}
 			</Products>
 		</Container>

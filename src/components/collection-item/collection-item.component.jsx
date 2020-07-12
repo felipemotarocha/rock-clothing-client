@@ -1,11 +1,12 @@
 import React from "react";
+import { useMutation } from "@apollo/react-hooks";
+
 import {
 	createMuiTheme,
 	ThemeProvider,
 	makeStyles,
 } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 import {
@@ -16,6 +17,7 @@ import {
 	Name,
 	Price,
 } from "./collection-item.styles";
+import { ADD_PRODUCT_TO_CART } from "../../graphql/mutations/client-mutations";
 
 const theme = createMuiTheme({
 	palette: {
@@ -31,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const CollectionItem = ({ name, price, imageUrl }) => {
+const CollectionItem = ({ product }) => {
 	const classes = useStyles();
+	const [addProductToCart] = useMutation(ADD_PRODUCT_TO_CART, {
+		variables: { product },
+	});
 
+	const { name, price, imageUrl } = product;
 	return (
 		<Product>
 			<ProductImage src={imageUrl}>
@@ -44,6 +50,7 @@ const CollectionItem = ({ name, price, imageUrl }) => {
 							color="primary"
 							className={classes["add-to-cart-button"]}
 							startIcon={<AddShoppingCartIcon />}
+							onClick={addProductToCart}
 						>
 							ADD TO CART
 						</Button>

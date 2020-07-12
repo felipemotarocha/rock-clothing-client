@@ -6,9 +6,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
+
+import CartDrawer from "../cart-drawer/cart-drawer.component";
+
+import { CartButton } from "./navbar.styles";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -46,9 +48,9 @@ const Navbar = () => {
 					Shop
 				</Button>
 				<Button color="inherit">Login</Button>
-				<IconButton color="inherit" aria-label="See your cart">
-					<ShoppingCartIcon />
-				</IconButton>
+				<CartButton>
+					<CartDrawer />
+				</CartButton>
 			</Toolbar>
 		</AppBar>
 	);

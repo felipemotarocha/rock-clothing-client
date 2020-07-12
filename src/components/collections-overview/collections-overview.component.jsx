@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 
 import { Container } from "./collections-overview.styles";
-import { GET_COLLECTIONS_WITH_PRODUCTS } from "../../graphql/queries";
+import { GET_COLLECTIONS_WITH_PRODUCTS } from "../../graphql/queries/server-queries";
 import CollectionPreview from "../collection-preview/collection-preview.component";
 
 const CollectionsOverview = () => {
