@@ -19,5 +19,9 @@ export const Headline = styled.span`
 	h2 {
 		display: inline-block;
 		border-bottom: 1px solid #c9d6df;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 `;
