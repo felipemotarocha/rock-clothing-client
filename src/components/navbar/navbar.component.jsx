@@ -38,6 +38,9 @@ const Navbar = () => {
         >
           ROCK CLOTHING
         </Typography>
+        <Button color="inherit" onClick={() => history.push("/shop")}>
+          Shop
+        </Button>
         <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>

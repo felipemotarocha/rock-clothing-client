@@ -1,23 +1,29 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	width: 100%;
-	margin: auto;
 	display: flex;
-	justify-content: center;
-	flex-flow: wrap;
+	flex-direction: column;
 `;
 
 export const Headline = styled.span`
-	width: 100%;
+	font-size: 1.5rem;
 	text-transform: uppercase;
+	font-weight: 500;
 	letter-spacing: 1px;
 	text-align: center;
-	font-size: 1.5rem;
-	color: #1e2022;
 
 	h2 {
 		display: inline-block;
 		border-bottom: 1px solid #c9d6df;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
+`;
+
+export const Products = styled.div`
+	display: flex;
+	flex-flow: wrap;
+	justify-content: center;
 `;

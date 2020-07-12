@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Item = styled.div`
-  height: 220px;
+  height: 230px;
 `;
 
 export const Container = styled.div`
@@ -9,11 +9,11 @@ export const Container = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 7px;
   margin: 50px auto;
-  width: 80%;
+  width: 90%;
   height: 100%;
 
   & ${Item}:nth-child(3) {
     grid-column: 1 / span 2;
-    height: 320px;
+    height: 330px;
   }
 `;
