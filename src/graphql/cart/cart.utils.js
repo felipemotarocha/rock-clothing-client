@@ -18,3 +18,8 @@ export const getCartProductsCount = (cartProducts) =>
 	cartProducts.reduce((accumulutatedQuantity, cartProduct) => {
 		return accumulutatedQuantity + cartProduct.quantity;
 	}, 0);
+
+export const getCartProductsTotal = (cartProducts) =>
+	cartProducts.reduce((accumulatedPrice, cartProduct) => {
+		return accumulatedPrice + cartProduct.quantity * cartProduct.price;
+	}, 0);

@@ -1,75 +1,42 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React from "react";
 import Drawer from "@material-ui/core/Drawer";
-import IconButton from "@material-ui/core/IconButton";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
-import CartProduct from "../cart-product/cart-product.component";
+import { default as CartIcon } from "../cart-icon/cart-icon.container";
+import { default as CartDrawerProducts } from "../cart-drawer-products/cart-drawer-products.container";
+import { default as CartDrawerFooter } from "../cart-drawer-footer/cart-drawer-footer.container";
 
 import {
 	Container,
-	ProductsCount,
 	Products,
-	ProductsHeadline,
+	Footer,
+	EmptyMessage,
 } from "./cart-drawer.styles";
-import {
-	GET_CART_PRODUCTS_COUNT,
-	GET_CART_PRODUCTS,
-} from "../../graphql/queries/client-queries";
 
-const CartDrawer = () => {
-	const [state, setState] = useState({
-		right: false,
-	});
-	const {
-		data: { cartProductsCount },
-	} = useQuery(GET_CART_PRODUCTS_COUNT);
-	const {
-		data: { cartProducts },
-	} = useQuery(GET_CART_PRODUCTS);
-
-	const toggleDrawer = (anchor, open) => (event) => {
-		if (
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
-
-		setState({ ...state, [anchor]: open });
-	};
-
-	if (cartProducts) console.log(cartProducts);
-
+const CartDrawer = ({
+	cartDrawerHidden,
+	toggleCartDrawerHidden,
+	cartProductsTotal,
+}) => {
 	return (
-		<div>
-			<React.Fragment key={"right"}>
-				<Container>
-					<IconButton
-						color="inherit"
-						aria-label="See your cart"
-						onClick={toggleDrawer("right", true)}
-					>
-						<ShoppingCartIcon />
-					</IconButton>
-					<ProductsCount>{cartProductsCount}</ProductsCount>
-				</Container>
-				<Drawer
-					anchor={"right"}
-					open={state["right"]}
-					onClose={toggleDrawer("right", false)}
-				>
-					<Products>
-						<ProductsHeadline>
-							<h2>Your cart</h2>
-						</ProductsHeadline>
-						{cartProducts.map((product) => (
-							<CartProduct key={product.id} product={product} />
-						))}
-					</Products>
-				</Drawer>
-			</React.Fragment>
-		</div>
+		<Container>
+			<CartIcon />
+			<Drawer
+				anchor={"right"}
+				open={!cartDrawerHidden}
+				onClose={toggleCartDrawerHidden}
+			>
+				<Products>
+					<CartDrawerProducts />
+				</Products>
+				{cartProductsTotal > 0 ? (
+					<Footer>
+						<CartDrawerFooter />
+					</Footer>
+				) : (
+					<EmptyMessage>Your cart is empty! :(</EmptyMessage>
+				)}
+			</Drawer>
+		</Container>
 	);
 };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { useMutation } from "@apollo/react-hooks";
 
 import {
 	createMuiTheme,
@@ -17,7 +16,6 @@ import {
 	Name,
 	Price,
 } from "./collection-item.styles";
-import { ADD_PRODUCT_TO_CART } from "../../graphql/mutations/client-mutations";
 
 const theme = createMuiTheme({
 	palette: {
@@ -33,11 +31,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const CollectionItem = ({ product }) => {
+const CollectionItem = ({ product, addProductToCart }) => {
 	const classes = useStyles();
-	const [addProductToCart] = useMutation(ADD_PRODUCT_TO_CART, {
-		variables: { product },
-	});
 
 	const { name, price, imageUrl } = product;
 	return (

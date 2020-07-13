@@ -1,16 +1,9 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
 import DirectoryItem from "../directory-item/directory-item.component";
 
 import { Container, Item } from "./directory.styles";
-import { GET_COLLECTIONS } from "../../graphql/queries/server-queries";
 
-const Directory = (props) => {
-	const { loading, data } = useQuery(GET_COLLECTIONS);
-
-	if (loading) return "Loading...";
-
-	const { collections } = data;
+const Directory = ({ collections }) => {
 	return (
 		<Container>
 			{collections.map(({ id, title, imageUrl, routeName }) => (

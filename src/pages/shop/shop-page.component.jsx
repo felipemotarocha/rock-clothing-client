@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import CollectionPage from "../collection/collection-page.component";
-import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
+import { default as CollectionPage } from "../collection/collection-page.container";
+import { default as CollectionsOverview } from "../../components/collections-overview/collections-overview.container";
 
 const ShopPage = () => {
 	return (

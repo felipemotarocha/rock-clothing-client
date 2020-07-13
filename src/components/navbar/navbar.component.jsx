@@ -1,14 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
-// Material UI elements
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
-import CartDrawer from "../cart-drawer/cart-drawer.component";
+import { default as CartDrawer } from "../cart-drawer/cart-drawer.container";
 
 import { CartButton } from "./navbar.styles";
 

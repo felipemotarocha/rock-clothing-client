@@ -5,3 +5,9 @@ export const ADD_PRODUCT_TO_CART = gql`
 		addProductToCart(product: $product) @client
 	}
 `;
+
+export const TOGGLE_CART_DRAWER_HIDDEN = gql`
+	mutation ToggleCartDrawerHidden {
+		toggleCartDrawerHidden @client
+	}
+`;

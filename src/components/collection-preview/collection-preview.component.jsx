@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import CollectionItem from "../collection-item/collection-item.component";
+import { default as CollectionItem } from "../collection-item/collection-item.container";
+
 import { Container, Headline, Products } from "./collection-preview.styles";
 
 const CollectionPreview = ({ title, products }) => {
