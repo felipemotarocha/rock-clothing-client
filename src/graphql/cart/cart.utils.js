@@ -23,3 +23,20 @@ export const getCartProductsTotal = (cartProducts) =>
 	cartProducts.reduce((accumulatedPrice, cartProduct) => {
 		return accumulatedPrice + cartProduct.quantity * cartProduct.price;
 	}, 0);
+
+export const decreaseCartProductQuantity = (cartProducts, productId) => {
+	const productToRemove = cartProducts.find(({ id }) => id === productId);
+
+	if (productToRemove.quantity === 1) {
+		return cartProducts.filter(({ id }) => id !== productId);
+	}
+
+	return cartProducts.map((product) =>
+		product.id === productId
+			? { ...product, quantity: product.quantity - 1 }
+			: product
+	);
+};
+
+export const clearCartProduct = (cartProducts, productId) =>
+	cartProducts.filter(({ id }) => id !== productId);

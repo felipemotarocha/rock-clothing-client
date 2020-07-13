@@ -14,7 +14,7 @@ export const Products = styled.div`
 export const ProductsHeadline = styled.div`
 	display: flex;
 	justify-content: center;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;

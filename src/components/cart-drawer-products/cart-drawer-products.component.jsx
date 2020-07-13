@@ -1,8 +1,12 @@
 import React from "react";
 
-import CartProduct from "../cart-product/cart-product.component";
+import { default as CartProduct } from "../cart-product/cart-product.container";
 
-import { Products, ProductsContainer, ProductsHeadline } from "./cart-drawer-products.styles";
+import {
+	Products,
+	ProductsContainer,
+	ProductsHeadline,
+} from "./cart-drawer-products.styles";
 
 const CartDrawerProducts = ({ cartProducts }) => {
 	return (

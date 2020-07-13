@@ -4,6 +4,8 @@ import {
 	addProductToCart,
 	getCartProductsCount,
 	getCartProductsTotal,
+	decreaseCartProductQuantity,
+	clearCartProduct,
 } from "./cart/cart.utils";
 import {
 	GET_CART_PRODUCTS,
@@ -20,6 +22,8 @@ export const typeDefs = gql`
 	extend type Mutation {
 		AddProductToCart(product: Product!): [Product]!
 		ToggleCartDrawerHidden: Boolean!
+		DecreaseProductCartQuantity(product: Product!): [Product]!
+		ClearCartProduct(product: Product!): [Product]!
 	}
 `;
 
@@ -60,6 +64,26 @@ export const resolvers = {
 			});
 
 			const newCartProducts = addProductToCart(cartProducts, product);
+			updateCartProductsRelatedQueries(cache, newCartProducts);
+
+			return newCartProducts;
+		},
+		decreaseCartProductQuantity: (_root, { product: { id } }, { cache }) => {
+			const { cartProducts } = cache.readQuery({
+				query: GET_CART_PRODUCTS,
+			});
+
+			const newCartProducts = decreaseCartProductQuantity(cartProducts, id);
+			updateCartProductsRelatedQueries(cache, newCartProducts);
+
+			return newCartProducts;
+		},
+		clearCartProduct: (_root, { product: { id } }, { cache }) => {
+			const { cartProducts } = cache.readQuery({
+				query: GET_CART_PRODUCTS,
+			});
+
+			const newCartProducts = clearCartProduct(cartProducts, id);
 			updateCartProductsRelatedQueries(cache, newCartProducts);
 
 			return newCartProducts;
