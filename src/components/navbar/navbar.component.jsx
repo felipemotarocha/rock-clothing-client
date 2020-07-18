@@ -45,7 +45,12 @@ const Navbar = () => {
 				<Button color="inherit" onClick={() => history.push("/shop")}>
 					Shop
 				</Button>
-				<Button color="inherit">Login</Button>
+				<Button color="inherit" onClick={() => history.push("/login")}>
+					Login
+				</Button>
+				<Button color="inherit" onClick={() => history.push("/register")}>
+					Register
+				</Button>
 				<CartButton>
 					<CartDrawer />
 				</CartButton>

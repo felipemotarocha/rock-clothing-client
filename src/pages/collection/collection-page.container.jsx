@@ -8,6 +8,7 @@ import CollectionPage from "./collection-page.component";
 
 const CollectionPageContainer = () => {
 	const { collectionTitle } = useParams();
+	console.log(collectionTitle);
 
 	const { loading, data } = useQuery(GET_COLLECTION_PRODUCTS, {
 		variables: { title: collectionTitle },
