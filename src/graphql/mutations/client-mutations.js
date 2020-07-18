@@ -23,3 +23,15 @@ export const CLEAR_CART_PRODUCT = gql`
 		clearCartProduct(product: $product) @client
 	}
 `;
+
+export const SET_CURRENT_USER = gql`
+	mutation SetCurrentUser($user: User!, $authToken: String!) {
+		setCurrentUser(user: $user, authToken: $authToken) @client
+	}
+`;
+
+export const LOGOUT_CURRENT_USER = gql`
+	mutation LogoutCurrentUser {
+		logoutCurrentUser @client
+	}
+`;

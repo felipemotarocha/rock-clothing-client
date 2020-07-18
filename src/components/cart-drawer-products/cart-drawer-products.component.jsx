@@ -1,6 +1,6 @@
 import React from "react";
 
-import { default as CartProduct } from "../cart-product/cart-product.container";
+import { default as CartProduct } from "../cart-drawer-product/cart-drawer-product.container";
 
 import {
 	Products,

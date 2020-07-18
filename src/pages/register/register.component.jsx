@@ -41,12 +41,11 @@ const RegisterPage = ({ registerUser }) => {
 
 	const handleSubmit = async () => {
 		try {
-			const data = await registerUser({
+			await registerUser({
 				variables: { name, email, password },
 			});
-			console.log(data);
-		} catch (err) {
-			console.log(err.message);
+		} catch ({ message }) {
+			alert(message);
 		}
 	};
 

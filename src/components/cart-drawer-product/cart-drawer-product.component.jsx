@@ -15,7 +15,7 @@ import {
 	QuantityContainer,
 	Quantity,
 	ClearContainer,
-} from "./cart-product.styles";
+} from "./cart-drawer-product.styles";
 
 const CartProduct = ({
 	product: { name, price, imageUrl, quantity },

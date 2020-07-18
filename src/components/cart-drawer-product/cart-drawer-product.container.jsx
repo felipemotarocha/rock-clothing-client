@@ -7,7 +7,7 @@ import {
 	CLEAR_CART_PRODUCT,
 } from "../../graphql/mutations/client-mutations";
 
-import CartProduct from "./cart-product.component";
+import CartProduct from "./cart-drawer-product.component";
 
 const CartProductContainer = ({ product }) => {
 	const [decreaseCartProductQuantity] = useMutation(

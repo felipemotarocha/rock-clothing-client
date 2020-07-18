@@ -41,12 +41,11 @@ const LoginPage = ({ loginUser }) => {
 
 	const handleSubmit = async () => {
 		try {
-			const data = await loginUser({
+			await loginUser({
 				variables: { email, password },
 			});
-			console.log(data);
-		} catch (err) {
-			console.log(err.message);
+		} catch ({ message }) {
+			alert(message);
 		}
 	};
 

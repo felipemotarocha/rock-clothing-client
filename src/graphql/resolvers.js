@@ -12,6 +12,7 @@ import {
 	GET_CART_PRODUCTS_COUNT,
 	GET_CART_PRODUCTS_TOTAL,
 	GET_CART_DRAWER_HIDDEN,
+	GET_CURRENT_USER,
 } from "./queries/client-queries";
 
 export const typeDefs = gql`
@@ -24,6 +25,8 @@ export const typeDefs = gql`
 		ToggleCartDrawerHidden: Boolean!
 		DecreaseProductCartQuantity(product: Product!): [Product]!
 		ClearCartProduct(product: Product!): [Product]!
+		SetCurrentUser(user: User!): User!
+		LogoutCurrentUser: Boolean!
 	}
 `;
 
@@ -87,6 +90,26 @@ export const resolvers = {
 			updateCartProductsRelatedQueries(cache, newCartProducts);
 
 			return newCartProducts;
+		},
+		setCurrentUser: (_root, { user, authToken }, { cache }) => {
+			cache.writeQuery({
+				query: GET_CURRENT_USER,
+				data: { currentUser: user },
+			});
+
+			localStorage.setItem("authToken", authToken);
+
+			return user;
+		},
+		logoutCurrentUser: (_root, _args, { cache }) => {
+			cache.writeQuery({
+				query: GET_CURRENT_USER,
+				data: { currentUser: null },
+			});
+
+			localStorage.removeItem("authToken");
+
+			return true;
 		},
 	},
 };

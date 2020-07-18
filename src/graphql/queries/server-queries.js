@@ -39,3 +39,13 @@ export const GET_COLLECTION_PRODUCTS = gql`
 		}
 	}
 `;
+
+export const GET_USER_PROFILE = gql`
+	{
+		userProfile {
+			id
+			name
+			email
+		}
+	}
+`;
