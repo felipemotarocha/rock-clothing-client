@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import {
 	Container,
@@ -23,14 +22,6 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }));
-
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: "#1E2022",
-		},
-	},
-});
 
 const RegisterPage = ({ registerUser }) => {
 	const [name, setName] = useState("");
@@ -53,37 +44,35 @@ const RegisterPage = ({ registerUser }) => {
 		<Container>
 			<Image />
 			<FormContainer className={classes.root}>
-				<ThemeProvider theme={theme}>
-					<Headline>Do not have an account?</Headline>
-					<Text>Register with your e-mail and password</Text>
-					<TextField
-						id="name"
-						type="text"
-						label="Name"
-						variant="outlined"
-						value={name}
-						onChange={({ target: { value } }) => setName(value)}
-					/>
-					<TextField
-						id="email"
-						type="email"
-						label="E-mail Address"
-						variant="outlined"
-						value={email}
-						onChange={({ target: { value } }) => setEmail(value)}
-					/>
-					<TextField
-						id="password"
-						type="password"
-						label="Password"
-						variant="outlined"
-						value={password}
-						onChange={({ target: { value } }) => setPassword(value)}
-					/>
-					<Button variant="contained" color="primary" onClick={handleSubmit}>
-						Register
-					</Button>
-				</ThemeProvider>
+				<Headline>Do not have an account?</Headline>
+				<Text>Register with your e-mail and password</Text>
+				<TextField
+					id="name"
+					type="text"
+					label="Name"
+					variant="outlined"
+					value={name}
+					onChange={({ target: { value } }) => setName(value)}
+				/>
+				<TextField
+					id="email"
+					type="email"
+					label="E-mail Address"
+					variant="outlined"
+					value={email}
+					onChange={({ target: { value } }) => setEmail(value)}
+				/>
+				<TextField
+					id="password"
+					type="password"
+					label="Password"
+					variant="outlined"
+					value={password}
+					onChange={({ target: { value } }) => setPassword(value)}
+				/>
+				<Button variant="contained" color="primary" onClick={handleSubmit}>
+					Register
+				</Button>
 			</FormContainer>
 		</Container>
 	);

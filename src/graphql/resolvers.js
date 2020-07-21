@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 import {
-	addProductToCart,
+	addCartProduct,
 	getCartProductsCount,
 	getCartProductsTotal,
 	decreaseCartProductQuantity,
@@ -21,7 +21,7 @@ export const typeDefs = gql`
 	}
 
 	extend type Mutation {
-		AddProductToCart(product: Product!): [Product]!
+		AddCartProduct(product: Product!): [Product]!
 		ToggleCartDrawerHidden: Boolean!
 		DecreaseProductCartQuantity(product: Product!): [Product]!
 		ClearCartProduct(product: Product!): [Product]!
@@ -61,12 +61,12 @@ export const resolvers = {
 
 			return !cartDrawerHidden;
 		},
-		addProductToCart: (_root, { product }, { cache }) => {
+		addCartProduct: (_root, { product }, { cache }) => {
 			const { cartProducts } = cache.readQuery({
 				query: GET_CART_PRODUCTS,
 			});
 
-			const newCartProducts = addProductToCart(cartProducts, product);
+			const newCartProducts = addCartProduct(cartProducts, product);
 			updateCartProductsRelatedQueries(cache, newCartProducts);
 
 			return newCartProducts;

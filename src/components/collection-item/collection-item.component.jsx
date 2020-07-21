@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-	createMuiTheme,
-	ThemeProvider,
-	makeStyles,
-} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
@@ -17,21 +13,13 @@ import {
 	Price,
 } from "./collection-item.styles";
 
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: "#1e2022",
-		},
-	},
-});
-
 const useStyles = makeStyles((theme) => ({
 	"add-to-cart-button": {
 		width: "75%",
 	},
 }));
 
-const CollectionItem = ({ product, addProductToCart }) => {
+const CollectionItem = ({ product, addCartProduct }) => {
 	const classes = useStyles();
 
 	const { name, price, imageUrl } = product;
@@ -39,17 +27,15 @@ const CollectionItem = ({ product, addProductToCart }) => {
 		<Product>
 			<ProductImage src={imageUrl}>
 				<AddToCartButton>
-					<ThemeProvider theme={theme}>
-						<Button
-							variant="contained"
-							color="primary"
-							className={classes["add-to-cart-button"]}
-							startIcon={<AddShoppingCartIcon />}
-							onClick={addProductToCart}
-						>
-							ADD TO CART
-						</Button>
-					</ThemeProvider>
+					<Button
+						variant="contained"
+						color="primary"
+						className={classes["add-to-cart-button"]}
+						startIcon={<AddShoppingCartIcon />}
+						onClick={addCartProduct}
+					>
+						ADD TO CART
+					</Button>
 				</AddToCartButton>
 			</ProductImage>
 

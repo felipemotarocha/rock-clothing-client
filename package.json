@@ -10,6 +10,7 @@
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
 		"apollo-boost": "^0.4.9",
+		"apollo-cache-persist": "^0.1.1",
 		"apollo-link-context": "^1.0.20",
 		"graphql": "^15.3.0",
 		"react": "^16.13.1",

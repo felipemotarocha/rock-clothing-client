@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import {
 	Container,
@@ -25,14 +24,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: "#1E2022",
-		},
-	},
-});
-
 const LoginPage = ({ loginUser }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -52,29 +43,27 @@ const LoginPage = ({ loginUser }) => {
 	return (
 		<Container>
 			<FormContainer className={classes.root}>
-				<ThemeProvider theme={theme}>
-					<Headline>Already have an account?</Headline>
-					<Text>Login with your e-mail and password</Text>
-					<TextField
-						id="email"
-						type="email"
-						label="E-mail Address"
-						variant="outlined"
-						value={email}
-						onChange={({ target: { value } }) => setEmail(value)}
-					/>
-					<TextField
-						id="password"
-						type="password"
-						label="Password"
-						variant="outlined"
-						value={password}
-						onChange={({ target: { value } }) => setPassword(value)}
-					/>
-					<Button variant="contained" color="primary" onClick={handleSubmit}>
-						Login
-					</Button>
-				</ThemeProvider>
+				<Headline>Already have an account?</Headline>
+				<Text>Login with your e-mail and password</Text>
+				<TextField
+					id="email"
+					type="email"
+					label="E-mail Address"
+					variant="outlined"
+					value={email}
+					onChange={({ target: { value } }) => setEmail(value)}
+				/>
+				<TextField
+					id="password"
+					type="password"
+					label="Password"
+					variant="outlined"
+					value={password}
+					onChange={({ target: { value } }) => setPassword(value)}
+				/>
+				<Button variant="contained" color="primary" onClick={handleSubmit}>
+					Login
+				</Button>
 			</FormContainer>
 			<Image />
 		</Container>

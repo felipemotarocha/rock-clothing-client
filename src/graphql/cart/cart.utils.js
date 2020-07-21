@@ -1,4 +1,4 @@
-export const addProductToCart = (cartProducts, productToAdd) => {
+export const addCartProduct = (cartProducts, productToAdd) => {
 	// Checking if the product is already in the cart
 	const existingProduct = cartProducts.find(
 		(product) => product.id === productToAdd.id

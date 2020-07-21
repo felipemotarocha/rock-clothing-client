@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
-export const ADD_PRODUCT_TO_CART = gql`
-	mutation AddProductToCart($product: Product) {
-		addProductToCart(product: $product) @client
+export const ADD_CART_PRODUCT = gql`
+	mutation AddCartProduct($product: Product) {
+		addCartProduct(product: $product) @client
 	}
 `;
 

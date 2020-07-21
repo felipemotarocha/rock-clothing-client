@@ -47,10 +47,12 @@ export const ProductImage = styled.div`
 	height: 90%;
 	width: 100%;
 	border-radius: 5px;
-  background: url('${(props) => props.src}') center center/cover;
-  background-color: none;
-  background-blend-mode: color;
-  transition: all 300ms ease;
+	background: url('${(props) => props.src}') center center/cover;
+	background-color: none;
+	background-blend-mode: color;
+	transition: all 300ms ease;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
 
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.4);
