@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import PaymentIcon from "@material-ui/icons/Payment";
 
 import { Container, Text } from "./stripe-payment-button.styles";
 
@@ -44,10 +45,11 @@ const StripeCheckoutButton = ({ price }) => {
 				className={classes.button}
 				color="primary"
 				onClick={handleClick}
+				startIcon={<PaymentIcon />}
 			>
 				PAY NOW
 			</Button>
-			<Text>You will be redirected to the Stripe checkout.</Text>
+			<Text>You will be redirected to the Stripe checkout page.</Text>
 		</Container>
 	);
 };

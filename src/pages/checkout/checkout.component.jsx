@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
+import ShopIcon from "@material-ui/icons/Shop";
 
 import { default as CheckoutProduct } from "../../components/checkout-product/checkout-product.container";
 import StripeCheckoutButton from "../../components/stripe-payment-button/stripe-payment-button.component";
@@ -58,6 +59,7 @@ const CheckoutPage = ({ cartProducts, cartProductsTotal }) => {
 						color="primary"
 						className={classes["shop-now-button"]}
 						onClick={() => history.push("/shop")}
+						startIcon={<ShopIcon />}
 					>
 						Shop now
 					</Button>

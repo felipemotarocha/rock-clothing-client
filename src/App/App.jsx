@@ -8,6 +8,8 @@ import ShopPage from "../pages/shop/shop-page.component";
 import { default as LoginPage } from "../pages/login/login.container";
 import { default as RegisterPage } from "../pages/register/register.container";
 import { default as CheckoutPage } from "../pages/checkout/checkout.container";
+import PaymentSuccessfulPage from "../pages/payment-successful/payment-successful.component";
+import PaymentFailurePage from "../pages/payment-failure/payment-failure.component";
 
 const theme = createMuiTheme({
 	palette: {
@@ -27,6 +29,12 @@ const App = () => {
 				<Route path="/login" component={LoginPage} />
 				<Route path="/register" component={RegisterPage} />
 				<Route path="/checkout" component={CheckoutPage} />
+				<Route
+					path="/payment-successful"
+					exact
+					component={PaymentSuccessfulPage}
+				/>
+				<Route path="/payment-failure" exact component={PaymentFailurePage} />
 			</Switch>
 		</ThemeProvider>
 	);

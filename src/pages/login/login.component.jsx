@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 		},
 		"& .MuiButton-root": {
 			margin: theme.spacing(1),
-			width: "40%",
 		},
 	},
 }));
