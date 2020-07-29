@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 
 import { default as CheckoutProduct } from "../../components/checkout-product/checkout-product.container";
+import StripeCheckoutButton from "../../components/stripe-payment-button/stripe-payment-button.component";
 
 import {
 	Container,
@@ -43,7 +44,10 @@ const CheckoutPage = ({ cartProducts, cartProductsTotal }) => {
 					{cartProducts.map((product) => (
 						<CheckoutProduct product={product} />
 					))}
-					<Total>Total: ${cartProductsTotal}</Total>
+					<Total>
+						Total: ${cartProductsTotal}
+						<StripeCheckoutButton price={cartProductsTotal} />
+					</Total>
 				</>
 			) : (
 				<EmptyMessage>

@@ -6,6 +6,8 @@ export const Container = styled.div`
 	align-items: center;
 	padding: 10px 0;
 	height: calc(100vh - 64px);
+	width: 85%;
+	margin: auto;
 `;
 
 export const Headline = styled.div`
@@ -24,7 +26,7 @@ export const Headline = styled.div`
 `;
 
 export const Header = styled.div`
-	width: 85%;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 250px repeat(3, 1fr) 250px;
 	align-items: center;
@@ -58,10 +60,12 @@ export const EmptyMessage = styled.div`
 `;
 
 export const Total = styled.div`
-	width: 85%;
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: column;
+	align-items: flex-end;
+	align-self: flex-end;
 	font-size: 1.6rem;
+	max-width: 20%;
 	text-transform: uppercase;
 	font-weight: 600;
 	letter-spacing: 1px;
