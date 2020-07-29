@@ -10,6 +10,7 @@ import { default as RegisterPage } from "../pages/register/register.container";
 import { default as CheckoutPage } from "../pages/checkout/checkout.container";
 import PaymentSuccessfulPage from "../pages/payment-successful/payment-successful.component";
 import PaymentFailurePage from "../pages/payment-failure/payment-failure.component";
+import AuthGuard from "../components/auth-guard/auth-guard.component";
 
 const theme = createMuiTheme({
 	palette: {
@@ -28,7 +29,9 @@ const App = () => {
 				<Route path="/shop" component={ShopPage} />
 				<Route path="/login" component={LoginPage} />
 				<Route path="/register" component={RegisterPage} />
-				<Route path="/checkout" component={CheckoutPage} />
+				<AuthGuard>
+					<Route path="/checkout" component={CheckoutPage} />
+				</AuthGuard>
 				<Route
 					path="/payment-successful"
 					exact

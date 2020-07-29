@@ -81,7 +81,10 @@ const Navbar = ({ currentUser, logoutCurrentUser }) => {
 								<Button
 									color="inherit"
 									startIcon={<ExitToAppIcon />}
-									onClick={logoutCurrentUser}
+									onClick={() => {
+										logoutCurrentUser();
+										return history.push("");
+									}}
 								>
 									Sign out
 								</Button>

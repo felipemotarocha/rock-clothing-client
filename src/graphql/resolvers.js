@@ -108,8 +108,6 @@ export const resolvers = {
 			});
 
 			localStorage.removeItem("authToken");
-
-			return true;
 		},
 	},
 };

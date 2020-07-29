@@ -6,7 +6,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloClient } from "apollo-boost";
 import { setContext } from "apollo-link-context";
 import { BrowserRouter as Router } from "react-router-dom";
-import { persistCache } from "apollo-cache-persist";
+// import { persistCache } from "apollo-cache-persist";
 
 import { default as App } from "./App/App.container";
 
@@ -32,14 +32,14 @@ const authLink = setContext((_, { headers }) => {
 
 const cache = new InMemoryCache();
 
-const setupAndRender = async () => {
-	await persistCache({
-		cache,
-		storage: window.localStorage,
-	});
-};
+// const setupAndRender = async () => {
+// 	await persistCache({
+// 		cache,
+// 		storage: window.localStorage,
+// 	});
+// };
 
-setupAndRender();
+// setupAndRender();
 
 const client = new ApolloClient({
 	link: authLink.concat(httpLink),
