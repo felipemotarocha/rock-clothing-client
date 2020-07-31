@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useMediaQuery } from "react-responsive";
 
 import {
 	Container,
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const LoginPage = ({ loginUser }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
 	const classes = useStyles();
 
@@ -64,7 +66,7 @@ const LoginPage = ({ loginUser }) => {
 					Login
 				</Button>
 			</FormContainer>
-			<Image />
+			{isMobile ? "" : <Image />}
 		</Container>
 	);
 };

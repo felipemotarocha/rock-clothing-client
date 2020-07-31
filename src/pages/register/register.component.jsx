@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useMediaQuery } from "react-responsive";
 
 import {
 	Container,
@@ -27,6 +28,7 @@ const RegisterPage = ({ registerUser }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
 	const classes = useStyles();
 
@@ -42,7 +44,7 @@ const RegisterPage = ({ registerUser }) => {
 
 	return (
 		<Container>
-			<Image />
+			{isMobile ? "" : <Image />}
 			<FormContainer className={classes.root}>
 				<Headline>Do not have an account?</Headline>
 				<Text>Register with your e-mail and password</Text>

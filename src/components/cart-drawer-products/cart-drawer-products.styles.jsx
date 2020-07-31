@@ -9,6 +9,10 @@ export const Products = styled.div`
 	padding: 0 20px;
 	display: flex;
 	flex-direction: column;
+
+	@media (max-width: 1024px) {
+		width: 300px;
+	}
 `;
 
 export const ProductsHeadline = styled.div`
@@ -19,6 +23,10 @@ export const ProductsHeadline = styled.div`
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	margin: 15px 0;
+
+	@media (max-width: 1024px) {
+		font-size: 1.1rem;
+	}
 
 	h2 {
 		margin: 0;

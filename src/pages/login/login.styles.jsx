@@ -4,6 +4,12 @@ export const Container = styled.div`
 	display: flex;
 	width: 100vw;
 	height: calc(100vh - 64px);
+
+	@media (max-width: 1024px) {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
 `;
 
 export const Image = styled.div`

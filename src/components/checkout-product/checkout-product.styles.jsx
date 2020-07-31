@@ -8,6 +8,11 @@ export const Container = styled.div`
 	padding: 15px 0;
 	border-bottom: 1px solid #c9d6df;
 	color: #1e2022;
+
+	@media (max-width: 1024px) {
+		display: flex;
+		flex-direction: column;
+	}
 `;
 
 export const Image = styled.div`
@@ -22,6 +27,10 @@ export const Name = styled.div`
 	text-align: center;
 	font-size: 1.3rem;
 	font-weight: 500;
+
+	@media (max-width: 1024px) {
+		margin-top: 30px;
+	}
 `;
 
 export const Price = styled.div`

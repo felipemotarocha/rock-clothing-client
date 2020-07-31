@@ -15,4 +15,8 @@ export const EmptyMessage = styled.span`
 	display: flex;
 	justify-content: center;
 	margin: auto;
+
+	@media (max-width: 1024px) {
+		font-size: 1.1rem;
+	}
 `;

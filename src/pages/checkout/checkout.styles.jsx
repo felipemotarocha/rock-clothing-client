@@ -34,6 +34,10 @@ export const Header = styled.div`
 	border-bottom: 1px solid #c9d6df;
 	padding: 10px 0;
 	color: #1e2022;
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 `;
 
 export const HeaderItem = styled.div`
@@ -70,4 +74,9 @@ export const Total = styled.div`
 	font-weight: 600;
 	letter-spacing: 1px;
 	padding: 10px 0;
+
+	@media (max-width: 1024px) {
+		min-width: 100%;
+		align-items: center;
+	}
 `;

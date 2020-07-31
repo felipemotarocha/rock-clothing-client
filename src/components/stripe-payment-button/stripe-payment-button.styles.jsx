@@ -5,9 +5,17 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+
+	@media (max-width: 1024px) {
+		align-items: center;
+	}
 `;
 
 export const Text = styled.span`
 	font-size: 1rem;
 	text-align: right;
+
+	@media (max-width: 1024px) {
+		text-align: center;
+	}
 `;
