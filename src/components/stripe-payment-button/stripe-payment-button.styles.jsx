@@ -19,3 +19,14 @@ export const Text = styled.span`
 		text-align: center;
 	}
 `;
+
+export const TestCard = styled.span`
+	font-size: 1rem;
+	text-align: right;
+	color: red;
+	font-weight: bold;
+
+	@media (max-width: 1024px) {
+		text-align: center;
+	}
+`;

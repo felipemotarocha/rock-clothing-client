@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import PaymentIcon from "@material-ui/icons/Payment";
 
-import { Container, Text } from "./stripe-payment-button.styles";
+import { Container, Text, TestCard } from "./stripe-payment-button.styles";
 
 // Setting up Stripe with the publishable key
 const stripePromise = loadStripe("pk_test_UDSy9JNhGbKE8n1248rXqvlY00jXcaCkgt");
@@ -50,6 +50,11 @@ const StripeCheckoutButton = ({ price }) => {
 				PAY NOW
 			</Button>
 			<Text>You will be redirected to the Stripe checkout page.</Text>
+			<TestCard>
+				Please use the following test credit card for payment:
+				<br />
+				4242 4242 4242 4242 - Exp: 01/25 - CVV: 123
+			</TestCard>
 		</Container>
 	);
 };
