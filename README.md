@@ -30,7 +30,7 @@ Create an `.env` file in the `root` directory with the following values:
     REACT_APP_API_URL=http://localhost:5000
 ```
 
-_You can change the value above if your API URL is different._
+_Of course you can change the value above if your API URL is different or if you want to deploy the application to something like Heroku, for example._
 
 Now you can run the application with:
 
