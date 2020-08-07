@@ -25,7 +25,7 @@ const StripeCheckoutButton = ({ price }) => {
 		try {
 			const {
 				data: { sessionId },
-			} = await axios.get("http://localhost:5000/product-payment", {
+			} = await axios.get(`${process.env.REACT_APP_API_URL}/product-payment`, {
 				params: {
 					amount: priceForStripe,
 				},

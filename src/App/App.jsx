@@ -29,15 +29,15 @@ const App = () => {
 				<Route path="/shop" component={ShopPage} />
 				<Route path="/login" component={LoginPage} />
 				<Route path="/register" component={RegisterPage} />
-				<AuthGuard>
-					<Route path="/checkout" component={CheckoutPage} />
-				</AuthGuard>
 				<Route
 					path="/payment-successful"
 					exact
 					component={PaymentSuccessfulPage}
 				/>
 				<Route path="/payment-failure" exact component={PaymentFailurePage} />
+				<AuthGuard>
+					<Route path="/checkout" component={CheckoutPage} />
+				</AuthGuard>
 			</Switch>
 		</ThemeProvider>
 	);

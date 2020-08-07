@@ -24,13 +24,27 @@ Install the dependencies:
     yarn install
 ```
 
+Create an `.env` file in the `root` directory with the following values:
+
+```bash
+    REACT_APP_API_URL=http://localhost:5000
+```
+
+_You can change the value above if your API URL is different._
+
+Now you can run the application with:
+
+```bash
+    yarn start
+```
+
 # Some Functionalities 📁
 
 - Cart implementation
 - Checkout with payment using Stripe API
-- Authentication system
+- Authentication System
 - Use of GraphQL with Apollo Client & Server
-- Mobile responsiveness
+- Mobile Responsiveness
 
 # Server Side Code 💻
 
